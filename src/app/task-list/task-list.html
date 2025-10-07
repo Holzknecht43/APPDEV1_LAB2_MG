@@ -1,0 +1,53 @@
+<style>
+        .task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .task-checkbox {
+            margin-right: 10px;
+        }
+    
+        .task-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+    
+        .task-checkbox:checked + .task-title {
+            color: #888;
+            text-decoration: line-through;
+        }
+    
+        .task-checkbox {
+            cursor: pointer;
+        }
+    
+        h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    </style>
+    
+
+
+<h4>Task List</h4>
+<ul>
+    <li *ngFor="let task of taskService.task; let i = index">
+        <input type="checkbox" [(ngModel)]="task.completed" />
+        <span>
+                {{task.title}}
+        </span>
+    </li>
+</ul>
